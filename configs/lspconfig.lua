@@ -1,0 +1,28 @@
+local configs = require("plugins.configs.lspconfig")
+local on_attach = require("lsp-format").on_attach
+local capabilities = configs.capabilities
+
+local lspconfig = require "lspconfig"
+local servers = { "html", "cssls", "clangd", "lua_ls", "gopls", "intelephense" }
+
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+end
+
+lspconfig.denols.setup {
+  on_attach = on_attach,
+  root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+}
+lspconfig.tsserver.setup {
+
+  on_attach = on_attach
+}
+
+
+lspconfig.emmet_ls.setup
+{
+  filetypes = { "html", "css" }
+}
