@@ -29,6 +29,10 @@ local plugins = {
     },
   },
   {
+    "aserowy/tmux.nvim",
+    config = function() return require("tmux").setup() end
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = { "html", "css", "bash", "javascript", "go" },
