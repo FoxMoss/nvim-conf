@@ -1,6 +1,6 @@
 ---@type ChadrcConfig
 local M = {}
-M.ui = { theme = 'dark_horizon' }
+M.ui = { theme = 'catppuccin' }
 M.plugins = "custom.plugins"
 M.mappings = require "custom.mappings"
 
@@ -27,5 +27,6 @@ vim.cmd("nnoremap <C-j> ddjP")
 vim.cmd("command! W :w")
 vim.wo.relativenumber = true
 
+vim.cmd("nnoremap <silent> <C-~> :silent <C-\\><C-n>")
 
 return M
