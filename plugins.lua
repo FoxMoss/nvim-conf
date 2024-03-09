@@ -1,6 +1,9 @@
 local plugins = {
 
   {
+    "preservim/vimux"
+  },
+  {
     "nvim-tree/nvim-tree.lua",
     on_attach = function(bufnr)
       local function opts(desc)
@@ -14,6 +17,7 @@ local plugins = {
   {
     "lukas-reineke/lsp-format.nvim",
   },
+  {'RaafatTurki/hex.nvim'},
   {
     "williamboman/mason.nvim",
     opts = {
