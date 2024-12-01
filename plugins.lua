@@ -4,20 +4,9 @@ local plugins = {
     "preservim/vimux"
   },
   {
-    "nvim-tree/nvim-tree.lua",
-    on_attach = function(bufnr)
-      local function opts(desc)
-        return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-      end
-      local api = require "nvim-tree.api"
-      api.config.mappings.default_on_attach(bufnr)
-      vim.keymap.set("n", "l", api.node.open.edit, opts("Open"))
-    end
-  },
-  {
     "lukas-reineke/lsp-format.nvim",
   },
-  {'RaafatTurki/hex.nvim'},
+  { 'RaafatTurki/hex.nvim' },
   {
     "williamboman/mason.nvim",
     opts = {
@@ -39,7 +28,7 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
-      ensure_installed = { "html", "css", "bash", "javascript", "go" },
+      ensure_installed = { "css", "bash", "javascript", "go" },
     },
   },
   {
@@ -70,6 +59,18 @@ local plugins = {
   {
     "folke/which-key.nvim",
     enabled = true,
+  },
+  {
+    "godlygeek/tabular",
+    enabled = true,
+  },
+  {
+    "preservim/vim-markdown",
+    enabled = true,
+  },
+  {
+    "martini97/project-config.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
   }
 
 }
