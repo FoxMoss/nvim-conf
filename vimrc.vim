@@ -24,11 +24,12 @@ Plug 'MunifTanjim/prettier.nvim'
 Plug 'ellisonleao/glow.nvim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'prabirshrestha/vim-lsp'
-Plug 'preservim/nerdtree'
+Plug 'lambdalisue/vim-fern'
 Plug 'ryanoasis/vim-devicons'
 Plug 'sbdchd/neoformat'
 Plug 'ashyisme/2048'
 Plug 'wakatime/vim-wakatime'
+Plug 'mfussenegger/nvim-jdtls'
 
 let g:neoformat_try_node_exe = 1
 
@@ -54,17 +55,7 @@ function! s:JbzClangFormat(first, last)
 endfunction
 command! -range=% JbzClangFormat call <sid>JbzClangFormat (<line1>, <line2>)
 
-nnoremap <leader>e :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-nnoremap <C-m> <CR>
-let g:NERDTreeWinPos = "right"
-
-let g:NERDTreeShowLineNumbers=1
-autocmd BufEnter NERD_* setlocal rnu
-
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-let NERDTreeQuitOnOpen = 1
+nnoremap <leader>e :Fern . -reveal=% -drawer -right -toggle<CR>
+nnoremap <leader>q :q<CR>
 
 set scrolloff=10
